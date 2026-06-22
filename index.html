@@ -169,12 +169,20 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.documentElement.replaceWith(doc.documentElement);
 
     // Add WhatsApp button after document is rendered
-    setTimeout(function() {
-      const whatsappBtn = document.createElement('div');
-      whatsappBtn.id = 'whatsapp-btn';
-      whatsappBtn.innerHTML = '<a href="https://wa.me/5521971373457" target="_blank" rel="noopener noreferrer" title="Fale conosco no WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M17.6915026,2.50231304 C15.6109266,0.404126984 12.7922722,-.0241871696 10.0151224,0.683111501 C4.80827223,2.20511165 1.07160899,7.23244884 1.16521228,12.7932939 C1.20742347,15.6694624 2.04572757,18.4624603 3.54472989,20.8284444 L2,24 L5.3043478,22.6625156 C7.70985915,23.9926549 10.4169591,24.5157298 13.1272231,24.4788733 C19.1844869,24.3919006 24.3177871,19.1505255 24.299882,12.9919145 C24.2873505,9.72852854 23.0408944,6.64501389 20.8844277,4.52808765 C19.8461879,3.51285944 18.6855899,2.64307274 17.6915026,2.50231304 Z M10.0151224,2.08369098 C12.4616075,1.51584458 15.0151224,1.98944506 16.8066949,3.77095655 C18.5982675,5.552468 19.3757225,7.92123276 19.3662493,10.3071253 C19.3567762,15.4132701 15.2159504,19.5 10.0151224,19.5350935 C8.05480315,19.5350935 6.13007662,19.0585216 4.53057065,18.1688889 L4.10766871,17.938629 L3.37357145,18.2002171 L2.00636533,18.7552105 L3.7850636,16.2820429 L4.04518127,15.8944927 L3.82605395,15.4632633 C2.7134228,13.4513274 2.30671727,11.1268995 2.82967718,8.95522959 C4.24848644,3.63514347 10.0151224,1.51584458 10.0151224,2.08369098 Z"/></svg></a>';
-      if (document.body) document.body.appendChild(whatsappBtn);
-    }, 50);
+    function addWhatsAppBtn() {
+      if (!document.getElementById('whatsapp-btn')) {
+        const btn = document.createElement('div');
+        btn.id = 'whatsapp-btn';
+        btn.innerHTML = '<a href="https://wa.me/5521971373457" target="_blank" rel="noopener noreferrer"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTkuMDcgNi0yNzAxQzE5LjMxNCA0LjIzOTcgMTguMzUzIDIuNDU2MSAxNi41MDkgMi4wODcyQzEzLjA3NyAxLjM1NDcgNi41NTAxIDMuMDQyMiA0LjEzNzEgNS44MDQyQzEuNzI0IDguNTY2MiAyLjA5NzYgMTIuMjU1MyAyLjYyMDggMTYuMDAxN0MzLjE0NCAxOS43NDggMi4xODEyIDIyLjU5MDYgNC4wMDEgMjMuNDczNEM1LjEyODQgMjMuOTkzMyA2LjI1NjEgMjMuNTY0IDcuMzgzOCA yMjYuNWMwLjkyMzIgMC4xODA1IDEuODQ2MyAwLjI3MDYgMi43NjkzIDAuMjcwNmM0LjI4MjEgMCA4LjI4NzMtMS40NDE3IDExLjQ5NjItNAn.RGBA(zI3IDE4LjQ2NDZDMjMuNjE0MSAxNi44NDgyIDI0LTEzLjI5NjQgMjQgOS42YzAtNC44LTEuOTItOS41LTUuMzEtMTNDMjUuMjctNC41IDIwLjk2NC0yLjggMTYuNzMtMi44YzAtMy4zLTIuNy02LTYtNnoiIGZpbGw9IiMyNWQzNjYiLz48cGF0aCBkPSJNMTkuMDcgNjAwMzAxQzE5LjMxNCA0LjIzOTcgMTguMzUzIDIuNDU2MSAxNi41MDkgMi4wODcyQzEzLjA3NyAxLjM1NDcgNi41NTAxIDMuMDQyMiA0LjEzNzEgNS44MDQyQzEuNzI0IDguNTY2MiAyLjA5NzYgMTIuMjU1MyAyLjYyMDggMTYuMDAxN0MzLjE0NCAxOS43NDggMi4xODEyIDIyLjU5MDYgNC4wMDEgMjMuNDczNEM1LjEyODQgMjMuOTkzMyA2LjI1NjEgMjMuNTY0IDcuMzgzOCAyMi41YzAuOTIzMiAwLjE4MDUgMS44NDYzIDAuMjcwNiAyLjc2OTMgMC4yNzA2YzQuMjgyMSAwIDguMjg3My0xLjQ0MTcgMTEuNDk2Mi00IiBmaWxsPSIjZmZmIi8+PC9zdmc+" alt="WhatsApp" /></a>';
+        document.body.appendChild(btn);
+      }
+    }
+
+    // Try immediately
+    addWhatsAppBtn();
+    // And after delays to ensure body exists
+    setTimeout(addWhatsAppBtn, 100);
+    setTimeout(addWhatsAppBtn, 500);
 
     const dead = Array.from(document.scripts);
     for (const old of dead) {

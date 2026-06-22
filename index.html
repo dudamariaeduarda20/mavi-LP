@@ -215,11 +215,8 @@ document.addEventListener('DOMContentLoaded', async function() {
       document.body.appendChild(btn);
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', createWhatsAppBtn);
-    } else {
-      createWhatsAppBtn();
-    }
+    window.addEventListener('load', createWhatsAppBtn);
+    setTimeout(createWhatsAppBtn, 100);
   </script>
 
 </body>

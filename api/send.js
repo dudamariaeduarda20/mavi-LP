@@ -140,7 +140,7 @@ module.exports = async (req, res) => {
     });
   } catch (err) {
     console.error('admin email failed:', err.message);
-    res.status(502).json({ error: 'Não foi possível enviar agora. Tente novamente.', debug: err.message });
+    res.status(502).json({ error: 'Não foi possível enviar agora. Tente novamente.' });
     return;
   }
 

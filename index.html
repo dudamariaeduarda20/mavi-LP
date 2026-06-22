@@ -172,12 +172,21 @@ document.addEventListener('DOMContentLoaded', async function() {
       if (!document.getElementById('whatsapp-btn') && document.body) {
         const btn = document.createElement('div');
         btn.id = 'whatsapp-btn';
-        btn.innerHTML = '<a href="https://wa.me/5521971373457" target="_blank" rel="noopener noreferrer" title="Fale no WhatsApp">💬</a>';
+        btn.style.cssText = 'position:fixed!important;bottom:40px!important;right:40px!important;z-index:99999!important;';
+        const link = document.createElement('a');
+        link.href = 'https://wa.me/5521971373457';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.title = 'Fale no WhatsApp';
+        link.style.cssText = 'display:flex!important;align-items:center!important;justify-content:center!important;width:80px!important;height:80px!important;background:#25d366!important;border-radius:50%!important;text-decoration:none!important;box-shadow:0 4px 12px rgba(0,0,0,0.25)!important;transition:all 0.3s!important;font-size:42px!important;line-height:1!important;';
+        link.textContent = '💬';
+        btn.appendChild(link);
         document.body.appendChild(btn);
       }
     }
 
     setTimeout(addWhatsAppBtn, 100);
+
 
 
     const dead = Array.from(document.scripts);

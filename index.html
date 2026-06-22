@@ -170,19 +170,16 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Add WhatsApp button after document is rendered
     function addWhatsAppBtn() {
-      if (!document.getElementById('whatsapp-btn')) {
+      if (!document.getElementById('whatsapp-btn') && document.body) {
         const btn = document.createElement('div');
         btn.id = 'whatsapp-btn';
-        btn.innerHTML = '<a href="https://wa.me/5521971373457" target="_blank" rel="noopener noreferrer"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTkuMDcgNi0yNzAxQzE5LjMxNCA0LjIzOTcgMTguMzUzIDIuNDU2MSAxNi41MDkgMi4wODcyQzEzLjA3NyAxLjM1NDcgNi41NTAxIDMuMDQyMiA0LjEzNzEgNS44MDQyQzEuNzI0IDguNTY2MiAyLjA5NzYgMTIuMjU1MyAyLjYyMDggMTYuMDAxN0MzLjE0NCAxOS43NDggMi4xODEyIDIyLjU5MDYgNC4wMDEgMjMuNDczNEM1LjEyODQgMjMuOTkzMyA2LjI1NjEgMjMuNTY0IDcuMzgzOCA yMjYuNWMwLjkyMzIgMC4xODA1IDEuODQ2MyAwLjI3MDYgMi43NjkzIDAuMjcwNmM0LjI4MjEgMCA4LjI4NzMtMS40NDE3IDExLjQ5NjItNAn.RGBA(zI3IDE4LjQ2NDZDMjMuNjE0MSAxNi44NDgyIDI0LTEzLjI5NjQgMjQgOS42YzAtNC44LTEuOTItOS41LTUuMzEtMTNDMjUuMjctNC41IDIwLjk2NC0yLjggMTYuNzMtMi44YzAtMy4zLTIuNy02LTYtNnoiIGZpbGw9IiMyNWQzNjYiLz48cGF0aCBkPSJNMTkuMDcgNjAwMzAxQzE5LjMxNCA0LjIzOTcgMTguMzUzIDIuNDU2MSAxNi41MDkgMi4wODcyQzEzLjA3NyAxLjM1NDcgNi41NTAxIDMuMDQyMiA0LjEzNzEgNS44MDQyQzEuNzI0IDguNTY2MiAyLjA5NzYgMTIuMjU1MyAyLjYyMDggMTYuMDAxN0MzLjE0NCAxOS43NDggMi4xODEyIDIyLjU5MDYgNC4wMDEgMjMuNDczNEM1LjEyODQgMjMuOTkzMyA2LjI1NjEgMjMuNTY0IDcuMzgzOCAyMi41YzAuOTIzMiAwLjE4MDUgMS44NDYzIDAuMjcwNiAyLjc2OTMgMC4yNzA2YzQuMjgyMSAwIDguMjg3My0xLjQ0MTcgMTEuNDk2Mi00IiBmaWxsPSIjZmZmIi8+PC9zdmc+" alt="WhatsApp" /></a>';
+        btn.innerHTML = '<a href="https://wa.me/5521971373457" target="_blank" rel="noopener noreferrer" title="Fale no WhatsApp">💬</a>';
         document.body.appendChild(btn);
       }
     }
 
-    // Try immediately
-    addWhatsAppBtn();
-    // And after delays to ensure body exists
     setTimeout(addWhatsAppBtn, 100);
-    setTimeout(addWhatsAppBtn, 500);
+
 
     const dead = Array.from(document.scripts);
     for (const old of dead) {

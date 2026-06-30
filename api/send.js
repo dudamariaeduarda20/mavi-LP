@@ -79,6 +79,7 @@ module.exports = async (req, res) => {
 
   const name = (body.name || '').trim();
   const email = (body.email || '').trim();
+  const phone = (body.phone || '').trim();
   const company = (body.company || '').trim();
   const service = (body.service || '').trim();
   const message = (body.message || '').trim();
@@ -101,6 +102,7 @@ module.exports = async (req, res) => {
       <h2 style="color: #000;">Nova Submissão de Projeto</h2>
       <p><strong>Nome:</strong> ${esc(name)}</p>
       <p><strong>Email:</strong> ${esc(email)}</p>
+      <p><strong>Telefone:</strong> ${esc(phone) || '—'}</p>
       <p><strong>Empresa:</strong> ${esc(company) || '—'}</p>
       <p><strong>Serviço Solicitado:</strong> ${serviceLabel(service)}</p>
       <p><strong>Mensagem:</strong></p>
